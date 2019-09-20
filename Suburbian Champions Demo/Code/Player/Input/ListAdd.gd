@@ -1,11 +1,13 @@
 extends Node2D
 
-#THIS NODE ADDS THE INPUT TO THE INPUT LIST
+#THIS SCRIPT ADDS THE INPUT TO THE INPUT LIST
+#MOVE CHECKER TAKES THE KEY TO SEE WHAT INPUT COMMAND IS MADE
 
 onready var input = $"../InputReceiver"
 onready var P1GUI = $"../../../GUI/P1inputs"
 onready var root = $"../../"
 
+#key id is from InputReceiver.gd enum keys
 var button = {
 	"key" : 0,
 	"pressed_time" : 0
@@ -25,6 +27,7 @@ func _ready():
 	
 	none = button.duplicate(true)
 
+#If there's not input added (none)
 func AddEmpty():
 	if input.left_pressed or input.right_pressed:
 		none["pressed_time"] = 0
@@ -35,7 +38,7 @@ func AddEmpty():
 	if none["pressed_time"] > 8:
 		AddNone()
 
-
+#This help to stop the character when Idle and stop walking for ever
 func AddNone():
 	if keys[0].key != 0:
 		var tmp = button.duplicate(true)
@@ -57,13 +60,17 @@ func AddKey(key):
 		tmp.pressed_time = 0
 		keys.insert(0, tmp)
 	
+		#delete old keys
 		if len(keys) > 10:
 			keys.remove(len(keys)-1)
+		#Update the GUI
 		P1GUI.UpdateList(keys[0])
 
 func KeyboardPressed():
+	#1 is left
 	if keys[0].key == 1 and input.left_pressed:
 		AddTimePress()
+	#2 is right
 	if keys[0].key == 2 and input.right_pressed:
 		AddTimePress()
 

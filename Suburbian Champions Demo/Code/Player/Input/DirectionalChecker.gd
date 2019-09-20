@@ -1,5 +1,8 @@
 extends Node2D
 
+#THIS SCRIPT TAKES INTO ACCOUNT THE X POSITION TO MIRROR A MOVEMENT
+#POSSIBLE CHECKER TAKES THE CURRENT VAR INTO CONSIDERATION
+
 onready var Root = $"../../"
 onready var checker = $"../MoveChecker"
 onready var P1GUI = $"../../../GUI/P1inputs"

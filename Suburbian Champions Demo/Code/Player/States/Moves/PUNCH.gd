@@ -1,5 +1,7 @@
 extends Node2D
 
+# BASIC PUNCH SCRIPT
+
 onready var Ani = $"../../Sprites/AnimationPlayer"
 onready var Root = $"../.."
 onready var States = $"../../Basic_States"
@@ -14,7 +16,8 @@ func Update(delta):
 		Root.Velocity = Vector2.ZERO
 	if Ani.current_animation != "Punch":
 		Ani.play("Punch")
-		
+
+#This function returns the player to idle state in the end of the animation
 func End():
 	input.AddEmptyCommand()
 	Root.idle = true

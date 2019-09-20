@@ -1,6 +1,11 @@
 extends Node2D
 
+#THIS SCRIPT TAKES THE INPUT FROM THE KEYBOARD
+#LISTADD TAKES THIS INPUT FOR IT'S BUFFER INPUT LIST
+
 onready var Root = $"../../"
+
+#script that manages the list of key inputs added
 onready var list = $"../ListAdd"
 enum keys {
 	none, left, right, punch, spunch
@@ -14,6 +19,7 @@ var punch_pressed = false
 var spunch_pressed = false
 #current key
 var current
+#take an AI decission after a timer
 var decision
 
 func _ready():
@@ -47,9 +53,11 @@ func _process(delta):
 		if Input.is_action_just_released("RIGHTP1"):
 			right_pressed = false
 	else:
+		#Take decision from AI
 		if decision:
 			decision = false
 			
+			#Choose what to do
 			var tmp = rand_range(1, 4)
 			if tmp < 2:
 				left = true
@@ -59,7 +67,8 @@ func _process(delta):
 				right_pressed = true
 			else:
 				AddEmptyCommand()
-
+	
+	#if there's not direction button pressed, add empty key
 	if !left_pressed and !right_pressed:
 		list.AddEmpty()
 	
@@ -68,17 +77,22 @@ func _process(delta):
 	if right and not left:
 		current = keys.right
 	
+	#if current is diferent to none key pressed add the key
 	if current != keys.none:
 		list.AddKey(current)
 	
+	#add time pressed
 	list.KeyboardPressed()
 	
+# if AI has no input
 func AddEmptyCommand():
 	list.AddNone()
 
 func _input(event):
+	#reset list pressed time to 0
 	list.none["pressed_time"] = 0
 
+#AI Take a decision
 func _on_AI_timeout():
 	$"../../AI".start(rand_range(0.5, 2))
 	decision = true

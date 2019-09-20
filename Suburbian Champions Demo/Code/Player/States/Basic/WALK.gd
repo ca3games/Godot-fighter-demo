@@ -1,5 +1,7 @@
 extends Node2D
 
+#WALK STATE
+
 onready var Ani = $"../../Sprites/AnimationPlayer"
 onready var Root = $"../.."
 onready var States = get_parent()

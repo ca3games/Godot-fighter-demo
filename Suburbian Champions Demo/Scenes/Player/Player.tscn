@@ -6,54 +6,54 @@
 [ext_resource path="res://Code/Player/States/Basic/WALK.gd" type="Script" id=4]
 [ext_resource path="res://Code/Player/States/Basic/WALK_BACK.gd" type="Script" id=5]
 [ext_resource path="res://Code/Player/States/Basic/HURT.gd" type="Script" id=6]
-[ext_resource path="res://hero/walk b/0001.png" type="Texture" id=7]
-[ext_resource path="res://hero/walk b/0002.png" type="Texture" id=8]
-[ext_resource path="res://hero/walk b/0003.png" type="Texture" id=9]
-[ext_resource path="res://hero/walk b/0004.png" type="Texture" id=10]
-[ext_resource path="res://hero/walk b/0005.png" type="Texture" id=11]
-[ext_resource path="res://hero/walk b/0006.png" type="Texture" id=12]
-[ext_resource path="res://hero/walk b/0007.png" type="Texture" id=13]
-[ext_resource path="res://hero/walk b/0008.png" type="Texture" id=14]
-[ext_resource path="res://hero/walk b/0009.png" type="Texture" id=15]
-[ext_resource path="res://hero/s punch/0001.png" type="Texture" id=16]
-[ext_resource path="res://hero/s punch/0002.png" type="Texture" id=17]
-[ext_resource path="res://hero/s punch/0003.png" type="Texture" id=18]
-[ext_resource path="res://hero/s punch/0004.png" type="Texture" id=19]
-[ext_resource path="res://hero/s punch/0005.png" type="Texture" id=20]
-[ext_resource path="res://hero/s punch/0006.png" type="Texture" id=21]
-[ext_resource path="res://hero/s punch/0007.png" type="Texture" id=22]
-[ext_resource path="res://hero/walk/0001.png" type="Texture" id=23]
-[ext_resource path="res://hero/walk/0002.png" type="Texture" id=24]
-[ext_resource path="res://hero/walk/0003.png" type="Texture" id=25]
-[ext_resource path="res://hero/walk/0004.png" type="Texture" id=26]
-[ext_resource path="res://hero/walk/0005.png" type="Texture" id=27]
-[ext_resource path="res://hero/walk/0006.png" type="Texture" id=28]
-[ext_resource path="res://hero/walk/0007.png" type="Texture" id=29]
-[ext_resource path="res://hero/walk/0008.png" type="Texture" id=30]
-[ext_resource path="res://hero/walk/0009.png" type="Texture" id=31]
-[ext_resource path="res://hero/idle/0001.png" type="Texture" id=32]
-[ext_resource path="res://hero/idle/0002.png" type="Texture" id=33]
-[ext_resource path="res://hero/idle/0003.png" type="Texture" id=34]
-[ext_resource path="res://hero/idle/0004.png" type="Texture" id=35]
-[ext_resource path="res://hero/idle/0005.png" type="Texture" id=36]
-[ext_resource path="res://hero/idle/0006.png" type="Texture" id=37]
-[ext_resource path="res://hero/idle/0007.png" type="Texture" id=38]
-[ext_resource path="res://hero/idle/0008.png" type="Texture" id=39]
-[ext_resource path="res://hero/idle/0009.png" type="Texture" id=40]
-[ext_resource path="res://hero/punch/0001.png" type="Texture" id=41]
-[ext_resource path="res://hero/punch/0002.png" type="Texture" id=42]
-[ext_resource path="res://hero/punch/0003.png" type="Texture" id=43]
-[ext_resource path="res://hero/punch/0004.png" type="Texture" id=44]
-[ext_resource path="res://hero/punch/0005.png" type="Texture" id=45]
-[ext_resource path="res://hero/punch/0006.png" type="Texture" id=46]
-[ext_resource path="res://hero/punch/0007.png" type="Texture" id=47]
-[ext_resource path="res://hero/w hurt/0001.png" type="Texture" id=48]
-[ext_resource path="res://hero/w hurt/0002.png" type="Texture" id=49]
-[ext_resource path="res://hero/w hurt/0003.png" type="Texture" id=50]
-[ext_resource path="res://hero/w hurt/0004.png" type="Texture" id=51]
-[ext_resource path="res://hero/w hurt/0005.png" type="Texture" id=52]
-[ext_resource path="res://hero/w hurt/0006.png" type="Texture" id=53]
-[ext_resource path="res://hero/w hurt/0007.png" type="Texture" id=54]
+[ext_resource path="res://hero/idle/0001.png" type="Texture" id=7]
+[ext_resource path="res://hero/idle/0002.png" type="Texture" id=8]
+[ext_resource path="res://hero/idle/0003.png" type="Texture" id=9]
+[ext_resource path="res://hero/idle/0004.png" type="Texture" id=10]
+[ext_resource path="res://hero/idle/0005.png" type="Texture" id=11]
+[ext_resource path="res://hero/idle/0006.png" type="Texture" id=12]
+[ext_resource path="res://hero/idle/0007.png" type="Texture" id=13]
+[ext_resource path="res://hero/idle/0008.png" type="Texture" id=14]
+[ext_resource path="res://hero/idle/0009.png" type="Texture" id=15]
+[ext_resource path="res://hero/punch/0001.png" type="Texture" id=16]
+[ext_resource path="res://hero/punch/0002.png" type="Texture" id=17]
+[ext_resource path="res://hero/punch/0003.png" type="Texture" id=18]
+[ext_resource path="res://hero/punch/0004.png" type="Texture" id=19]
+[ext_resource path="res://hero/punch/0005.png" type="Texture" id=20]
+[ext_resource path="res://hero/punch/0006.png" type="Texture" id=21]
+[ext_resource path="res://hero/punch/0007.png" type="Texture" id=22]
+[ext_resource path="res://hero/w hurt/0001.png" type="Texture" id=23]
+[ext_resource path="res://hero/w hurt/0002.png" type="Texture" id=24]
+[ext_resource path="res://hero/w hurt/0003.png" type="Texture" id=25]
+[ext_resource path="res://hero/w hurt/0004.png" type="Texture" id=26]
+[ext_resource path="res://hero/w hurt/0005.png" type="Texture" id=27]
+[ext_resource path="res://hero/w hurt/0006.png" type="Texture" id=28]
+[ext_resource path="res://hero/w hurt/0007.png" type="Texture" id=29]
+[ext_resource path="res://hero/s punch/0001.png" type="Texture" id=30]
+[ext_resource path="res://hero/s punch/0002.png" type="Texture" id=31]
+[ext_resource path="res://hero/s punch/0003.png" type="Texture" id=32]
+[ext_resource path="res://hero/s punch/0004.png" type="Texture" id=33]
+[ext_resource path="res://hero/s punch/0005.png" type="Texture" id=34]
+[ext_resource path="res://hero/s punch/0006.png" type="Texture" id=35]
+[ext_resource path="res://hero/s punch/0007.png" type="Texture" id=36]
+[ext_resource path="res://hero/walk/0001.png" type="Texture" id=37]
+[ext_resource path="res://hero/walk/0002.png" type="Texture" id=38]
+[ext_resource path="res://hero/walk/0003.png" type="Texture" id=39]
+[ext_resource path="res://hero/walk/0004.png" type="Texture" id=40]
+[ext_resource path="res://hero/walk/0005.png" type="Texture" id=41]
+[ext_resource path="res://hero/walk/0006.png" type="Texture" id=42]
+[ext_resource path="res://hero/walk/0007.png" type="Texture" id=43]
+[ext_resource path="res://hero/walk/0008.png" type="Texture" id=44]
+[ext_resource path="res://hero/walk/0009.png" type="Texture" id=45]
+[ext_resource path="res://hero/walk b/0001.png" type="Texture" id=46]
+[ext_resource path="res://hero/walk b/0002.png" type="Texture" id=47]
+[ext_resource path="res://hero/walk b/0003.png" type="Texture" id=48]
+[ext_resource path="res://hero/walk b/0004.png" type="Texture" id=49]
+[ext_resource path="res://hero/walk b/0005.png" type="Texture" id=50]
+[ext_resource path="res://hero/walk b/0006.png" type="Texture" id=51]
+[ext_resource path="res://hero/walk b/0007.png" type="Texture" id=52]
+[ext_resource path="res://hero/walk b/0008.png" type="Texture" id=53]
+[ext_resource path="res://hero/walk b/0009.png" type="Texture" id=54]
 [ext_resource path="res://Code/Player/States/Moves/PUNCH.gd" type="Script" id=55]
 [ext_resource path="res://Code/Player/States/Moves/SPUNCH.gd" type="Script" id=56]
 [ext_resource path="res://Code/Player/Input/InputReceiver.gd" type="Script" id=57]
@@ -67,36 +67,36 @@
 animations = [ {
 "frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ],
 "loop": true,
-"name": "Walk Back",
+"name": "IDLE",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ) ],
 "loop": true,
+"name": "Punch",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ) ],
+"loop": true,
+"name": "Hurt",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ) ],
+"loop": true,
 "name": "SPunch",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ) ],
+"frames": [ ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ) ],
 "loop": true,
 "name": "Walk",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ) ],
+"frames": [ ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 52 ), ExtResource( 53 ), ExtResource( 54 ) ],
 "loop": true,
-"name": "IDLE",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ) ],
-"loop": true,
-"name": "Punch",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 48 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 52 ), ExtResource( 53 ), ExtResource( 54 ) ],
-"loop": true,
-"name": "Hurt",
+"name": "Walk Back",
 "speed": 5.0
 } ]
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=2]
 resource_name = "HURT"
 length = 0.7
 step = 0.05
@@ -139,8 +139,7 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "IDLE"
+[sub_resource type="Animation" id=3]
 length = 1.35
 loop = true
 step = 0.15
@@ -193,8 +192,7 @@ tracks/3/keys = {
 "values": [ Vector2( -16.1096, 6.4529 ) ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "Punch"
+[sub_resource type="Animation" id=4]
 length = 0.35
 step = 0.05
 tracks/0/type = "value"
@@ -260,8 +258,7 @@ tracks/4/keys = {
 "values": [ Vector2( -16.1096, 6.4529 ), Vector2( -11.3083, -3.49265 ), Vector2( 61.7401, -38.3878 ), Vector2( 66.1985, -37.2733 ), Vector2( -12.6801, -0.406109 ) ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "SPunch"
+[sub_resource type="Animation" id=5]
 length = 0.7
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:animation")
@@ -326,8 +323,7 @@ tracks/4/keys = {
 "values": [ true, false, true ]
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "Walk"
+[sub_resource type="Animation" id=6]
 length = 0.9
 loop = true
 tracks/0/type = "value"
@@ -379,8 +375,7 @@ tracks/3/keys = {
 "values": [ Vector2( -16.1096, 6.4529 ) ]
 }
 
-[sub_resource type="Animation" id=6]
-resource_name = "Walk Back"
+[sub_resource type="Animation" id=7]
 length = 0.9
 loop = true
 tracks/0/type = "value"
@@ -432,10 +427,10 @@ tracks/3/keys = {
 "values": [ Vector2( -16.1096, 6.4529 ) ]
 }
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 26.485, 80.895 )
 
-[sub_resource type="CircleShape2D" id=8]
+[sub_resource type="CircleShape2D" id=9]
 radius = 21.2879
 
 [node name="Player" type="KinematicBody2D" groups=[
@@ -492,18 +487,18 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprites"]
 autoplay = "IDLE"
-anims/HURT = SubResource( 9 )
-anims/IDLE = SubResource( 2 )
-anims/Punch = SubResource( 3 )
-anims/SPunch = SubResource( 4 )
-anims/Walk = SubResource( 5 )
-"anims/Walk Back" = SubResource( 6 )
+anims/HURT = SubResource( 2 )
+anims/IDLE = SubResource( 3 )
+anims/Punch = SubResource( 4 )
+anims/SPunch = SubResource( 5 )
+anims/Walk = SubResource( 6 )
+"anims/Walk Back" = SubResource( 7 )
 
 [node name="Body" type="CollisionShape2D" parent="." groups=[
 "Body",
 ]]
 position = Vector2( -10.83, 1.80501 )
-shape = SubResource( 7 )
+shape = SubResource( 8 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -516,7 +511,7 @@ position = Vector2( -16.1096, 6.4529 )
 [node name="Attack" type="CollisionShape2D" parent="Melee" groups=[
 "Attack",
 ]]
-shape = SubResource( 8 )
+shape = SubResource( 9 )
 disabled = true
 __meta__ = {
 "_edit_lock_": true

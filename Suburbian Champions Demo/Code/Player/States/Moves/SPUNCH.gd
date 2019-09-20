@@ -1,5 +1,7 @@
 extends Node2D
 
+#STRONG PUNCH SCRIPT
+
 onready var Ani = $"../../Sprites/AnimationPlayer"
 onready var Root = $"../.."
 onready var States = $"../../Basic_States"

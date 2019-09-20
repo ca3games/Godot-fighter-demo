@@ -1,5 +1,7 @@
 extends Node2D
 
+#THIS SCRIPT MANAGES THE STATES
+
 onready var Moves = "../Moves"
 
 var current
@@ -12,6 +14,7 @@ func _process(delta):
 		current.Update(delta)
 
 func ChangeStateInt(number):
+	#Number 5 is hurt
 	match(number):
 		0 : ChangeState("IDLE")
 		1 : ChangeState("WALK")

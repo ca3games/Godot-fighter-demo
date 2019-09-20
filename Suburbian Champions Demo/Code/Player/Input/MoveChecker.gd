@@ -5,6 +5,7 @@ onready var list = $"../ListAdd"
 onready var P1GUI = $"../../../GUI/P1inputs"
 
 #THIS NODE INTERPRETS THE LIST AND CHECK FOR COMMANDS
+#DIRECTIONAL CHECKER TAKES THIS COMMAND AND CHECK FOR X POSITION MIRROR
 
 enum move {
 	walk_left, walk_right, punch, spunch, idle
@@ -12,6 +13,7 @@ enum move {
 var current
 
 func _process(delta):
+		
 	if list.keys[0].key == 0:
 		current = move.idle
 	if list.keys[0].key == 1 and list.keys[0].pressed_time > 3:

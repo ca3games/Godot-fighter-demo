@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://DATA/EngineData/CharacterList.gd" type="Script" id=1]
+[ext_resource path="res://DATA/EngineData/EngineData.gd" type="Script" id=2]
+
+[node name="Variables" type="Node"]
+
+[node name="CharacterList" type="Node" parent="."]
+script = ExtResource( 1 )
+CharacterList = [ "res://DATA/CharacterData/Athena/Character.tscn" ]
+
+[node name="EngineData" type="Node" parent="."]
+script = ExtResource( 2 )
+CharactersPerTeam = 1

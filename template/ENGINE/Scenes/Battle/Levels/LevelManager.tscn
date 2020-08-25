@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 1023.34, 116.436 )
+
+[node name="LevelManager" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 487.904, 663.266 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource( 1 )
+
+[node name="P1" type="Position2D" parent="."]
+position = Vector2( 419.306, 501.088 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 506.632, 419.288 )
+current = true
+zoom = Vector2( 0.5, 0.5 )

@@ -1,0 +1,82 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://DATA/CharacterData/Athena/Sprites/idle/0_0-6.png" type="Texture" id=1]
+[ext_resource path="res://DATA/CharacterData/Athena/Sprites/idle/0_0-7.png" type="Texture" id=2]
+[ext_resource path="res://DATA/CharacterData/Athena/Sprites/idle/0_0-5.png" type="Texture" id=3]
+[ext_resource path="res://DATA/CharacterData/Athena/Sprites/idle/0_0-4.png" type="Texture" id=4]
+[ext_resource path="res://DATA/CharacterData/Athena/Sprites/idle/0_0-2.png" type="Texture" id=5]
+[ext_resource path="res://DATA/CharacterData/Athena/Sprites/idle/0_0-3.png" type="Texture" id=6]
+[ext_resource path="res://DATA/CharacterData/Athena/Sprites/idle/0_0-1.png" type="Texture" id=7]
+[ext_resource path="res://DATA/CharacterData/Athena/Sprites/idle/0_0-0.png" type="Texture" id=8]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 8 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 1 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 11.2287
+height = 72.829
+
+[sub_resource type="Animation" id=3]
+resource_name = "idle"
+length = 0.7
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "idle" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnimatedSprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0.794598, -0.132431 ), Vector2( 0.794598, 0.927031 ), Vector2( 0.132431, 1.72163 ), Vector2( -1.05947, 1.85406 ), Vector2( -1.05947, 1.85406 ) ]
+}
+
+[node name="Character" type="KinematicBody2D"]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( -1.05947, 1.85406 )
+frames = SubResource( 1 )
+animation = "idle"
+frame = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -8.13173, 1.06066 )
+shape = SubResource( 2 )
+
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( -37.25, 47 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+anims/idle = SubResource( 3 )

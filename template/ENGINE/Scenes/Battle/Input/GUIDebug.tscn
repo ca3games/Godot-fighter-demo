@@ -1,0 +1,27 @@
+[gd_scene format=2]
+
+[node name="InputDebug" type="Control"]
+margin_left = 4.0
+margin_top = 2.0
+margin_right = 44.0
+margin_bottom = 80.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Debug" type="VBoxContainer" parent="."]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Debug"]
+margin_right = 81.0
+margin_bottom = 133.0
+text = "sdasdasdasd
+asd
+as
+da
+sd
+asd
+as
+das"

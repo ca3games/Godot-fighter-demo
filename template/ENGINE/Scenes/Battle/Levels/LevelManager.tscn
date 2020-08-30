@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://ENGINE/Scenes/Battle/Input/GUICamera.tscn" type="PackedScene" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 1023.34, 116.436 )
@@ -14,7 +16,5 @@ shape = SubResource( 1 )
 [node name="P1" type="Position2D" parent="."]
 position = Vector2( 419.306, 501.088 )
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 506.632, 419.288 )
-current = true
-zoom = Vector2( 0.5, 0.5 )
+[node name="Camera2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 566.632, 433.288 )

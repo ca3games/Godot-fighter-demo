@@ -33,6 +33,11 @@ func _process(delta):
 	if Input.is_action_just_released("Debug"):
 		Debug = !Debug
 		ShowDebug()
+		
+	if P1:
+		$InputReader.SetKeyP1()
+		$ArrayReader.ReceiveKey($InputReader.key)
+		$CommandReader.SelectNewCommand($ArrayReader.Keys)
 
 func AddKey(key):
 	if !Debug:
@@ -60,3 +65,9 @@ func ShowDebug():
 	else:
 		debugP1.hide()
 		debugP2.hide()
+
+func ShowCommand(command):
+	if !Debug:
+		return
+	if P1:
+		debugP1.ShowCommand(command)

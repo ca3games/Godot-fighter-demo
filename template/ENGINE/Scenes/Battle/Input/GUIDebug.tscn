@@ -27,7 +27,7 @@ __meta__ = {
 }
 
 [node name="Info" type="HBoxContainer" parent="Info"]
-margin_right = 59.0
+margin_right = 103.0
 margin_bottom = 14.0
 
 [node name="Label" type="Label" parent="Info/Info"]
@@ -42,7 +42,7 @@ margin_bottom = 14.0
 
 [node name="Info2" type="HBoxContainer" parent="Info"]
 margin_top = 18.0
-margin_right = 59.0
+margin_right = 103.0
 margin_bottom = 32.0
 
 [node name="Label" type="Label" parent="Info/Info2"]
@@ -53,4 +53,19 @@ text = "Idle:"
 [node name="Idle" type="Label" parent="Info/Info2"]
 margin_left = 33.0
 margin_right = 33.0
+margin_bottom = 14.0
+
+[node name="Info3" type="HBoxContainer" parent="Info"]
+margin_top = 36.0
+margin_right = 103.0
+margin_bottom = 50.0
+
+[node name="Label" type="Label" parent="Info/Info3"]
+margin_right = 99.0
+margin_bottom = 14.0
+text = "Last Command:"
+
+[node name="LastCommand" type="Label" parent="Info/Info3"]
+margin_left = 103.0
+margin_right = 103.0
 margin_bottom = 14.0

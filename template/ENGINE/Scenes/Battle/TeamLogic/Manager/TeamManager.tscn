@@ -6,3 +6,5 @@
 
 [node name="Team" parent="." instance=ExtResource( 1 )]
 P1 = true
+
+[node name="Team2" parent="." instance=ExtResource( 1 )]

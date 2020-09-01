@@ -2,22 +2,24 @@ extends Node2D
 
 onready var Key = load("res://ENGINE/Scenes/Battle/Input/Character/Key.gd")
 
-var Keys
+var Keys = []
 var timeidle = 0
 
 func _ready():
+	for i in range(8):
+		AddDummyInput()
 	
+
+
+func AddDummyInput():
 	var key = Key.new()
 	key.keyID = $"../".Key.none
-	
-	Keys = []
 	Keys.append(key)
 
 func ReceiveKey(new_key):
 	if new_key != $"../".Key.none:
-		print(Keys[0].timepressed)
 		if new_key == Keys[len(Keys)-1].keyID:
-			if timeidle > 8:
+			if timeidle > 10:
 				AddKey(new_key)
 			else:
 				Keys[0].timepressed += 1
@@ -30,6 +32,7 @@ func ReceiveKey(new_key):
 		
 		timeidle += 1
 		$"../".AddIdle(timeidle)
+		
 
 func AddKey(new_key):
 	timeidle = 0

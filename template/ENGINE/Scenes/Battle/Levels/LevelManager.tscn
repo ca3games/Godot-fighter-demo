@@ -16,5 +16,8 @@ shape = SubResource( 1 )
 [node name="P1" type="Position2D" parent="."]
 position = Vector2( 419.306, 501.088 )
 
+[node name="P2" type="Position2D" parent="."]
+position = Vector2( 690.306, 495.088 )
+
 [node name="Camera2D" parent="." instance=ExtResource( 1 )]
 position = Vector2( 566.632, 433.288 )

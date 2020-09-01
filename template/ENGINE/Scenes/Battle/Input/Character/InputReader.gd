@@ -2,11 +2,8 @@ extends Node2D
 
 onready var key = $"../".Key.none
 
-
-func _process(delta):
-	if $"../".P1:
-		key = KeyInputP1()
-		$"../ArrayReader".ReceiveKey(key)
+func SetKeyP1():
+	key = KeyInputP1()
 
 
 func KeyInputP1():

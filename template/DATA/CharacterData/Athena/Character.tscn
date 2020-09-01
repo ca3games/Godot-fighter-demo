@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://DATA/CharacterData/Athena/Sprites/idle/0_0-6.png" type="Texture" id=1]
 [ext_resource path="res://DATA/CharacterData/Athena/Sprites/idle/0_0-7.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://DATA/CharacterData/Athena/Sprites/idle/0_0-3.png" type="Texture" id=6]
 [ext_resource path="res://DATA/CharacterData/Athena/Sprites/idle/0_0-1.png" type="Texture" id=7]
 [ext_resource path="res://DATA/CharacterData/Athena/Sprites/idle/0_0-0.png" type="Texture" id=8]
+[ext_resource path="res://ENGINE/Scenes/Battle/TeamLogic/Character/PhysicsData.gd" type="Script" id=9]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -61,14 +62,36 @@ tracks/2/keys = {
 "update": 1,
 "values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0.794598, -0.132431 ), Vector2( 0.794598, 0.927031 ), Vector2( 0.132431, 1.72163 ), Vector2( -1.05947, 1.85406 ), Vector2( -1.05947, 1.85406 ) ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("PhysicsData:Speed")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("PhysicsData:Gravity")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
 
 [node name="Character" type="KinematicBody2D"]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( -1.05947, 1.85406 )
 frames = SubResource( 1 )
 animation = "idle"
-frame = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -8.13173, 1.06066 )
@@ -80,3 +103,8 @@ position = Vector2( -37.25, 47 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "idle"
 anims/idle = SubResource( 3 )
+
+[node name="PhysicsData" type="Node2D" parent="."]
+script = ExtResource( 9 )
+Speed = Vector2( 2, 0 )
+Gravity = 5.0

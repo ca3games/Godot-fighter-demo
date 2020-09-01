@@ -15,3 +15,6 @@ func AddTime(time):
 
 func AddIdle(time):
 	$Info/Info2/Idle.text = str(time)
+
+func ShowCommand(command):
+	$Info/Info3/LastCommand.text = str(command)

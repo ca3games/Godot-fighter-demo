@@ -2,28 +2,11 @@ extends Node2D
 
 onready var key = $"../".Key.none
 
-onready var debugP1 = $"../../../LevelManager/Camera2D/P1"
-onready var debugP2 = $"../../../LevelManager/Camera2D/P2"
-
-
-var Debug = false
 
 func _process(delta):
 	if $"../".P1:
 		key = KeyInputP1()
-	
-	if Input.is_action_just_released("Debug"):
-		Debug = !Debug
-		ShowDebug()
-
-
-func ShowDebug():
-	if Debug:
-		debugP1.show()
-		debugP2.show()
-	else:
-		debugP1.hide()
-		debugP2.hide()
+		$"../ArrayReader".ReceiveKey(key)
 
 
 func KeyInputP1():
@@ -37,5 +20,20 @@ func KeyInputP1():
 		k = $"../".Key.up
 	if Input.is_action_pressed("P1Down"):
 		k = $"../".Key.down
-	
+	if Input.is_action_pressed("AP1"):
+		k = $"../".Key.A
+	if Input.is_action_pressed("BP1"):
+		k = $"../".Key.B
+	if Input.is_action_pressed("CP1"):
+		k = $"../".Key.C
+	if Input.is_action_pressed("DP1"):
+		k = $"../".Key.D
+	if Input.is_action_pressed("XP1"):
+		k = $"../".Key.X
+	if Input.is_action_pressed("YP1"):
+		k = $"../".Key.Y
+	if Input.is_action_pressed("ZP1"):
+		k = $"../".Key.Z
+	if Input.is_action_pressed("WP1"):
+		k = $"../".Key.W
 	return k

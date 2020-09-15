@@ -7,7 +7,6 @@ var gravity = 0
 func _ready():
 	yield(get_tree(), "idle_frame")
 	current = $"../".Characters[0]
-	print(current)
 
 
 func _physics_process(delta):

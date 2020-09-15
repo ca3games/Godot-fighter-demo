@@ -9,8 +9,6 @@ func _ready():
 	for i in range(8):
 		AddDummyInput()
 	
-
-
 func AddDummyInput():
 	var key = Key.new()
 	key.keyID = $"../".Key.none
@@ -19,27 +17,23 @@ func AddDummyInput():
 func ReceiveKey(new_key):
 	if new_key != $"../".Key.none:
 		if new_key == Keys[len(Keys)-1].keyID:
-			if timeidle > 10:
+			if timeidle > 3:
 				AddKey(new_key)
-			else:
-				Keys[0].timepressed += 1
-				$"../".AddTime(Keys[0].timepressed)
+			else: 
+				Keys[len(Keys)-1].timepressed += 1
 		else:
 			AddKey(new_key)
 	else:
-		if timeidle > 999999:
-			999999
-		
 		timeidle += 1
-		$"../".AddIdle(timeidle)
-		
-
+		if timeidle > 20:
+			AddKey(new_key)
+	
 func AddKey(new_key):
-	timeidle = 0
 	var key = Key.new()
 	key.keyID = new_key
 	Keys.append(key)
-	$"../".AddKey( $"../".GetKeyName(Keys[0].keyID))
+	$"../".AddKey( $"../".GetKeyName(Keys[len(Keys)-1].keyID))
 	
 	if len(Keys) > 10:
 		Keys.remove(0)
+	timeidle = 0

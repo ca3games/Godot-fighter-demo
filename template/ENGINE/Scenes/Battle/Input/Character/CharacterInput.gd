@@ -29,7 +29,7 @@ func GetKeyName(key):
 		12: return "None"
 
 
-func _process(delta):
+func _physics_process(delta):
 	if Input.is_action_just_released("Debug"):
 		Debug = !Debug
 		ShowDebug()

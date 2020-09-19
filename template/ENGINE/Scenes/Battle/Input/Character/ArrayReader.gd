@@ -26,7 +26,7 @@ func ReceiveKey(new_key):
 	else:
 		timeidle += 1
 		$"../".AddIdle(timeidle)
-		if timeidle > 20:
+		if timeidle > 10:
 			AddKey(new_key)
 	
 func AddKey(new_key):

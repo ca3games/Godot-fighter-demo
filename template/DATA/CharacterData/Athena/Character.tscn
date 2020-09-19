@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://DATA/CharacterData/Athena/Sprites/idle/0_0-6.png" type="Texture" id=1]
 [ext_resource path="res://DATA/CharacterData/Athena/Sprites/idle/0_0-7.png" type="Texture" id=2]
@@ -9,6 +9,39 @@
 [ext_resource path="res://DATA/CharacterData/Athena/Sprites/idle/0_0-1.png" type="Texture" id=7]
 [ext_resource path="res://DATA/CharacterData/Athena/Sprites/idle/0_0-0.png" type="Texture" id=8]
 [ext_resource path="res://ENGINE/Scenes/Battle/TeamLogic/Character/PhysicsData.gd" type="Script" id=9]
+[ext_resource path="res://DATA/CharacterFSM/CharacterFSM.gd" type="Script" id=10]
+[ext_resource path="res://DATA/CharacterData/Athena/Sprites/Walk/walk_20-7.png" type="Texture" id=11]
+[ext_resource path="res://DATA/CharacterData/Athena/Sprites/walk_b/walk_21-7.png" type="Texture" id=12]
+[ext_resource path="res://DATA/CharacterData/Athena/Sprites/Walk/walk_20-9.png" type="Texture" id=13]
+[ext_resource path="res://DATA/CharacterData/Athena/Sprites/Walk/walk_20-0.png" type="Texture" id=14]
+[ext_resource path="res://DATA/CharacterData/Athena/Sprites/Walk/walk_20-3.png" type="Texture" id=15]
+[ext_resource path="res://DATA/CharacterData/Athena/Sprites/walk_b/walk_21-0.png" type="Texture" id=16]
+[ext_resource path="res://DATA/CharacterData/Athena/Sprites/walk_b/walk_21-3.png" type="Texture" id=17]
+[ext_resource path="res://DATA/CharacterData/Athena/Sprites/Walk/walk_20-4.png" type="Texture" id=18]
+[ext_resource path="res://DATA/CharacterData/Athena/Sprites/Walk/walk_20-2.png" type="Texture" id=19]
+[ext_resource path="res://DATA/CharacterData/Athena/Sprites/walk_b/walk_21-2.png" type="Texture" id=20]
+[ext_resource path="res://DATA/CharacterData/Athena/Sprites/Walk/walk_20-6.png" type="Texture" id=21]
+[ext_resource path="res://DATA/CharacterData/Athena/Sprites/Walk/walk_20-1.png" type="Texture" id=22]
+[ext_resource path="res://DATA/CharacterData/Athena/Sprites/Walk/walk_20-5.png" type="Texture" id=23]
+[ext_resource path="res://DATA/CharacterData/Athena/Sprites/Walk/walk_20-11.png" type="Texture" id=24]
+[ext_resource path="res://DATA/CharacterData/Athena/Sprites/walk_b/walk_21-1.png" type="Texture" id=25]
+[ext_resource path="res://DATA/CharacterData/Athena/Sprites/Walk/walk_20-10.png" type="Texture" id=26]
+[ext_resource path="res://DATA/CharacterData/Athena/Sprites/walk_b/walk_21-5.png" type="Texture" id=27]
+[ext_resource path="res://DATA/CharacterData/Athena/Sprites/walk_b/walk_21-4.png" type="Texture" id=28]
+[ext_resource path="res://DATA/CharacterData/Athena/Sprites/walk_b/walk_21-6.png" type="Texture" id=29]
+[ext_resource path="res://DATA/CharacterData/Athena/Sprites/Walk/walk_20-8.png" type="Texture" id=30]
+[ext_resource path="res://DATA/CharacterFSM/Movement/Idle.gd" type="Script" id=31]
+[ext_resource path="res://DATA/CharacterData/Athena/ListFSM.gd" type="Script" id=32]
+[ext_resource path="res://DATA/CharacterFSM/Movement/Walk.gd" type="Script" id=33]
+[ext_resource path="res://DATA/CharacterFSM/Character.gd" type="Script" id=34]
+[ext_resource path="res://DATA/CharacterData/Athena/Sprites/Jump/41_41-1.png" type="Texture" id=35]
+[ext_resource path="res://DATA/CharacterData/Athena/Sprites/Jump/41_41-2.png" type="Texture" id=36]
+[ext_resource path="res://DATA/CharacterData/Athena/Sprites/Jump/41_41-0.png" type="Texture" id=37]
+[ext_resource path="res://DATA/CharacterData/Athena/Sprites/Jump/41_41-5.png" type="Texture" id=38]
+[ext_resource path="res://DATA/CharacterData/Athena/Sprites/Jump/41_41-6.png" type="Texture" id=39]
+[ext_resource path="res://DATA/CharacterData/Athena/Sprites/Jump/41_41-3.png" type="Texture" id=40]
+[ext_resource path="res://DATA/CharacterData/Athena/Sprites/Jump/41_41-4.png" type="Texture" id=41]
+[ext_resource path="res://DATA/CharacterFSM/Movement/Jump.gd" type="Script" id=42]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -16,14 +49,211 @@ animations = [ {
 "loop": true,
 "name": "idle",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ), ExtResource( 25 ), ExtResource( 20 ), ExtResource( 17 ), ExtResource( 28 ), ExtResource( 27 ), ExtResource( 29 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "walk_b",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ), ExtResource( 22 ), ExtResource( 19 ), ExtResource( 15 ), ExtResource( 18 ), ExtResource( 23 ), ExtResource( 21 ), ExtResource( 11 ), ExtResource( 30 ), ExtResource( 13 ), ExtResource( 26 ), ExtResource( 24 ) ],
+"loop": true,
+"name": "walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 37 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 38 ), ExtResource( 39 ) ],
+"loop": true,
+"name": "Jump",
+"speed": 5.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 11.2287
 height = 72.829
 
+[sub_resource type="Animation" id=6]
+resource_name = "Jump"
+length = 0.7
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Jump" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( -7.98853, 0 ), Vector2( -11.3521, -0.420448 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnimatedSprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CollisionShape2D:shape:radius")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 11.2287, 11.2287 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("CollisionShape2D:shape:height")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.2, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 72.829, 55.891, 87.8451 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("CollisionShape2D:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -6.87039, 2.74245 ), Vector2( -11.0749, 2.74245 ), Vector2( -12.3362, 1.90155 ) ]
+}
+
 [sub_resource type="Animation" id=3]
-resource_name = "idle"
+resource_name = "Walk"
+length = 1.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "walk" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -9.6703, -1.26134 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnimatedSprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CollisionShape2D:shape:radius")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 13.8064 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("CollisionShape2D:shape:height")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 71.7577 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Walk_Back"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "walk_b" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnimatedSprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -4.62492, -0.420448 ) ]
+}
+
+[sub_resource type="Animation" id=5]
 length = 0.7
 loop = true
 tracks/0/type = "value"
@@ -75,7 +305,7 @@ tracks/3/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("PhysicsData:Gravity")
+tracks/4/path = NodePath("CollisionShape2D:shape:radius")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -84,17 +314,33 @@ tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 0.0 ]
+"values": [ 11.2287 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("CollisionShape2D:shape:height")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 72.829 ]
 }
 
 [node name="Character" type="KinematicBody2D"]
+script = ExtResource( 34 )
+Gravity = 50.0
+MaxGravity = 200.0
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( -7.98853, 0 )
 frames = SubResource( 1 )
-animation = "idle"
+animation = "Jump"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -8.13173, 1.06066 )
+position = Vector2( -6.87039, 2.74245 )
 shape = SubResource( 2 )
 
 [node name="Position2D" type="Position2D" parent="."]
@@ -102,9 +348,40 @@ position = Vector2( -37.25, 47 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "idle"
-anims/idle = SubResource( 3 )
+anims/Jump = SubResource( 6 )
+anims/Walk = SubResource( 3 )
+anims/Walk_Back = SubResource( 4 )
+anims/idle = SubResource( 5 )
 
 [node name="PhysicsData" type="Node2D" parent="."]
 script = ExtResource( 9 )
-Speed = Vector2( 2, 0 )
-Gravity = 5.0
+
+[node name="CharacterFSM" type="Node2D" parent="."]
+script = ExtResource( 10 )
+
+[node name="Movements" type="Node2D" parent="CharacterFSM"]
+script = ExtResource( 32 )
+Idle = "Idle"
+Walk = "Walk"
+Walk_B = "Walk_B"
+Jump = "Jump"
+Hop = "Jump"
+
+[node name="Idle" type="Node2D" parent="CharacterFSM"]
+script = ExtResource( 31 )
+Anim = "idle"
+
+[node name="Walk" type="Node2D" parent="CharacterFSM"]
+script = ExtResource( 33 )
+walk_speed = 80.0
+Anim = "Walk"
+
+[node name="Walk_B" type="Node2D" parent="CharacterFSM"]
+script = ExtResource( 33 )
+walk_speed = -80.0
+Anim = "Walk_Back"
+
+[node name="Jump" type="Node2D" parent="CharacterFSM"]
+script = ExtResource( 42 )
+Anim = "Jump"
+JumpForce = Vector2( 0, -1000 )

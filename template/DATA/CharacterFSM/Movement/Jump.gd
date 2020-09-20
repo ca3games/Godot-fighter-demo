@@ -4,27 +4,30 @@ export (String) var Anim
 
 export (Vector2) var JumpForce
 var force
+onready var Root = $"../../../"
+onready var FSM = $"../../"
+onready var Ani = Root.get_node("AnimationPlayer")
+onready var Movements = $"../"
+
 
 func Inputs(delta):
 	pass
 
 func Physics(delta):
-	if $"../".IsJump:
+	if FSM.IsJump:
 		force = JumpForce
-		$"../".IsJump = false
-	
-	print(force)
+		FSM.IsJump = false
 
-	if $"../".AnimPlayer.current_animation != "Anim":
-		$"../".AnimPlayer.current_animation = Anim
+	if Ani.current_animation != "Anim":
+		Ani.current_animation = Anim
 		
-	force.y += $"../../".Gravity
-	if force.y > $"../../".MaxGravity:
-		force.y = $"../../".MaxGravity
+	force.y += Variables.get_node("EngineData").Gravity
+	if force.y > Variables.get_node("EngineData").MaxGravity:
+		force.y = Variables.get_node("EngineData").MaxGravity
 	
-	$"../../".move_and_slide(force)
-	for i in $"../../".get_slide_count():
-		var collision = $"../../".get_slide_collision(i)
+	Root.move_and_slide(force)
+	for i in Root.get_slide_count():
+		var collision = Root.get_slide_collision(i)
 		if collision.collider.is_in_group("Ground"):
-			if $"../Movements".Idle != null:
-				$"../".ChangeState($"../Movements".Idle)
+			if Movements.Idle != null:
+				FSM.ChangeState(Movements.Idle, "Movements", 0)

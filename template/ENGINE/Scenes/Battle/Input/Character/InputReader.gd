@@ -1,9 +1,11 @@
 extends Node2D
 
 onready var key = $"../".Key.none
+onready var button = $"../".Key.none
 
 func SetKeyP1():
 	key = KeyInputP1()
+	button = ButtonInputP1()
 
 func KeyInputP1():
 	var k = $"../".Key.none
@@ -16,6 +18,11 @@ func KeyInputP1():
 		k = $"../".Key.up
 	if Input.is_action_pressed("P1Down"):
 		k = $"../".Key.down
+	
+	return k
+
+func ButtonInputP1():
+	var k = $"../".Key.none
 	if Input.is_action_pressed("AP1"):
 		k = $"../".Key.A
 	if Input.is_action_pressed("BP1"):

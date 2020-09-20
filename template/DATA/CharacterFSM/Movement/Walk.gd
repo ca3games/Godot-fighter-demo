@@ -3,18 +3,25 @@ extends Node2D
 export (float) var walk_speed
 export (String) var Anim
 
+onready var Root = $"../../../"
+onready var FSM = $"../../"
+onready var Ani = Root.get_node("AnimationPlayer")
+onready var Movements = $"../"
+
 func Inputs(delta):
-		if $"../".Commands.last_command == 5:
-			if $"../Movements".Idle != null:
-				$"../".ChangeState($"../Movements".Idle)
-		if $"../".Commands.last_command == 1:
-			if $"../Movements".Walk != null:
-				$"../".ChangeState($"../Movements".Walk)
-		if $"../".Commands.last_command == 2:
-			if $"../Movements".Walk_B != null:
-				$"../".ChangeState($"../Movements".Walk_B)
+		if FSM.Commands == null:
+			return
+		
+		match(FSM.Commands.last_command):
+			0: FSM.ChangeState(Movements.Idle, "Movements", 0)
+			1: FSM.ChangeState(Movements.Walk, "Movements", 1)
+			2: FSM.ChangeState(Movements.Walk_B, "Movements", 2)
+			5: FSM.ChangeState(Movements.Crouch, "Movements")
+		
+		if FSM.Commands.non_idle_command >= 6 and FSM.Commands.non_idle_command <= 9:
+			FSM.ChangeState(Movements.PreJump, "Movements")
 
 func Physics(delta):
-	if $"../".AnimPlayer.current_animation != "Anim":
-		$"../".AnimPlayer.current_animation = Anim
-	$"../../".move_and_slide(Vector2(walk_speed, 0))
+	if Ani.current_animation != "Anim":
+		Ani.current_animation = Anim
+	Root.move_and_slide(Vector2(walk_speed, 0))

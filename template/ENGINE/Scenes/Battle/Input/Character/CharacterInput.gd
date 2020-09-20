@@ -36,7 +36,7 @@ func _physics_process(delta):
 		
 	if P1:
 		$InputReader.SetKeyP1()
-		$ArrayReader.ReceiveKey($InputReader.key)
+		$ArrayReader.ReceiveKey($InputReader.key, $InputReader.button)
 		$CommandReader.SelectNewCommand($ArrayReader.Keys)
 
 func AddKey(key):
@@ -57,6 +57,11 @@ func AddIdle(time):
 	if P1:
 		debugP1.AddIdle(time)
 
+func AddButtonIdle(time):
+	if !Debug:
+		return
+	if P1:
+		debugP1.AddButtonIdle(time)
 
 func ShowDebug():
 	if Debug:

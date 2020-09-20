@@ -2,29 +2,24 @@ extends Node2D
 
 export (String) var Anim
 
+onready var Root = $"../../../"
+onready var FSM = $"../../"
+onready var Ani = Root.get_node("AnimationPlayer")
+onready var Movements = $"../"
+
 func Inputs(delta):
-	
-	if $"../".Commands == null:
+	if FSM.Commands == null:
 		return
-	match($"../".Commands.last_command):
-		1:
-			if $"../Movements".Walk != null:
-				$"../".ChangeState($"../Movements".Walk)
-			else:
-				print("Walk is null")
-		2:
-			if $"../Movements".Walk_B != null:
-				$"../".ChangeState($"../Movements".Walk_B)
-			else:
-				print("Walk B is null")
-		6:
-			if $"../Movements".Hop != null:
-				$"../".IsJump = true
-				$"../".ChangeState($"../Movements".Hop)
-			else:
-				print("Hop is null")
-		_: print($"../".Commands.last_command)
+	
+	match(FSM.Commands.last_command):
+		1: FSM.ChangeState(Movements.Walk, "Movements", 1)
+		2: FSM.ChangeState(Movements.Walk_B, "Movements", 2)
+		5: FSM.ChangeState(Movements.Crouch, "Movements")
+		0: FSM.ChangeState(Movements.Idle, "Movements")
+	
+	if FSM.Commands.last_command >= 6 and FSM.Commands.last_command <= 9:
+			FSM.ChangeState(Movements.PreJump, "Movements")
 	
 func Physics(delta):
-	if $"../".AnimPlayer.current_animation != "Anim":
-		$"../".AnimPlayer.current_animation = Anim
+	if Ani.current_animation != "Anim":
+		Ani.current_animation = Anim

@@ -12,3 +12,5 @@ CharacterList = [ "res://DATA/CharacterData/Athena/Character.tscn" ]
 [node name="EngineData" type="Node" parent="."]
 script = ExtResource( 2 )
 CharactersPerTeam = 1
+Gravity = 50.0
+MaxGravity = 400.0

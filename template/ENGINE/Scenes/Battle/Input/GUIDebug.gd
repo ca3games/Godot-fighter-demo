@@ -13,6 +13,9 @@ func AddKey(key):
 func AddTime(time):
 	$Info/Info/Pressed.text = str(time)
 
+func AddButtonIdle(time):
+	$Info/Info4/LastButton.text = str(time)
+
 func AddIdle(time):
 	$Info/Info2/Idle.text = str(time)
 

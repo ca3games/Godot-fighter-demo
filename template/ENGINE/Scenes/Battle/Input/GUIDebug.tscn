@@ -69,3 +69,18 @@ text = "Last Command:"
 margin_left = 103.0
 margin_right = 103.0
 margin_bottom = 14.0
+
+[node name="Info4" type="HBoxContainer" parent="Info"]
+margin_top = 54.0
+margin_right = 103.0
+margin_bottom = 68.0
+
+[node name="Label" type="Label" parent="Info/Info4"]
+margin_right = 77.0
+margin_bottom = 14.0
+text = "Last Button:"
+
+[node name="LastButton" type="Label" parent="Info/Info4"]
+margin_left = 81.0
+margin_right = 81.0
+margin_bottom = 14.0

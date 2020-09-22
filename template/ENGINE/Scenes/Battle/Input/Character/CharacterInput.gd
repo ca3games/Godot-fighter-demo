@@ -1,6 +1,7 @@
 extends Node2D
 
 export (bool) var P1
+var Right = false
 
 
 onready var debugP1 = $"../../LevelManager/Camera2D/P1"
@@ -36,8 +37,13 @@ func _physics_process(delta):
 		
 	if P1:
 		$InputReader.SetKeyP1()
-		$ArrayReader.ReceiveKey($InputReader.key, $InputReader.button)
-		$CommandReader.SelectNewCommand($ArrayReader.Keys)
+		Right = !$"../../TeamManager/Team".Right
+	else:
+		$InputReader.SetKeyP2()
+		Right = !$"../../TeamManager/Team2".Right
+	
+	$ArrayReader.ReceiveKey($InputReader.key, $InputReader.button)
+	$CommandReader.SelectNewCommand($ArrayReader.Keys)
 
 func AddKey(key):
 	if !Debug:

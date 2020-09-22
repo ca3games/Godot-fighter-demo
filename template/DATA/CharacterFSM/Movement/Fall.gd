@@ -1,21 +1,19 @@
 extends Node2D
 
 export (String) var Anim
+var speed
+var force = Vector2.ZERO
 
-export (Vector2) var JumpForce
-var force
 onready var Root = $"../../../"
 onready var FSM = $"../../"
 onready var Ani = Root.get_node("AnimationPlayer")
 onready var Movements = $"../"
 
+
 func Inputs(delta):
 	pass
 
 func Physics(delta):
-	if FSM.IsJump:
-		force = JumpForce
-		FSM.IsJump = false
 
 	if Ani.current_animation != "Anim":
 		Ani.current_animation = Anim
@@ -31,6 +29,3 @@ func Physics(delta):
 			if Movements.Idle != null:
 				FSM.ChangeState(Movements.Idle, "Movements", 0)
 
-func EndJump():
-	FSM.get_node("Movements/Fall").force = FSM.current.force
-	FSM.ChangeState(Movements.Fall, "Movements")

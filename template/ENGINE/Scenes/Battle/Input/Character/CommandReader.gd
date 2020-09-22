@@ -32,12 +32,18 @@ func SelectNewCommand(Keys):
 	#DASH
 	if Keys[len(Keys)-1].keyID == $"../".Key.left:
 		if Keys[len(Keys)-2].keyID == $"../".Key.left:
-			last_command = commands.dash_b
+			if $"../".Right:
+				last_command = commands.dash_b
+			else:
+				last_command = commands.dash
 		else:
-			last_command = commands.walk_b
+				last_command = commands.walk_b
 	if Keys[len(Keys)-1].keyID == $"../".Key.right:
 		if Keys[len(Keys)-2].keyID == $"../".Key.right:
-			last_command = commands.dash
+			if $"../".Right:
+				last_command = commands.dash
+			else:
+				last_command = commands.dash_b
 		else:
 			last_command = commands.walk
 	

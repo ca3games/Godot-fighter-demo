@@ -5,6 +5,7 @@ export (String) var Walk
 export (String) var Walk_B
 export (String) var Crouch
 export (String) var PreJump
+export (String) var Fall
 export (String) var Dash
 export (String) var Dash_B
 export (String) var Jump

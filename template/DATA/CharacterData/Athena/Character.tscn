@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=2]
+[gd_scene load_steps=59 format=2]
 
 [ext_resource path="res://DATA/CharacterData/Athena/Sprites/idle/0_0-6.png" type="Texture" id=1]
 [ext_resource path="res://DATA/CharacterData/Athena/Sprites/idle/0_0-7.png" type="Texture" id=2]
@@ -48,22 +48,13 @@
 [ext_resource path="res://DATA/CharacterData/Athena/Sprites/Crouched/11_11-2.png" type="Texture" id=46]
 [ext_resource path="res://DATA/CharacterData/Athena/Sprites/Crouched/11_11-3.png" type="Texture" id=47]
 [ext_resource path="res://DATA/CharacterData/Athena/Sprites/Crouched/11_11-0.png" type="Texture" id=48]
+[ext_resource path="res://DATA/CharacterFSM/Movement/Fall.gd" type="Script" id=49]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 48 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ) ],
-"loop": true,
-"name": "Crouched",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 8 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 1 ), ExtResource( 2 ) ],
 "loop": true,
 "name": "idle",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 37 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 38 ), ExtResource( 39 ) ],
-"loop": true,
-"name": "Jump",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 14 ), ExtResource( 22 ), ExtResource( 19 ), ExtResource( 15 ), ExtResource( 18 ), ExtResource( 23 ), ExtResource( 21 ), ExtResource( 11 ), ExtResource( 30 ), ExtResource( 13 ), ExtResource( 26 ), ExtResource( 24 ) ],
@@ -76,6 +67,16 @@ animations = [ {
 "name": "walk_b",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 37 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 38 ), ExtResource( 39 ) ],
+"loop": true,
+"name": "Jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 48 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ) ],
+"loop": true,
+"name": "Crouched",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 44 ) ],
 "loop": true,
 "name": "prejump",
@@ -86,7 +87,7 @@ animations = [ {
 radius = 14.863
 height = 38.218
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=3]
 resource_name = "Crouched"
 length = 1.5
 loop = true
@@ -163,10 +164,84 @@ tracks/5/keys = {
 "values": [ Vector2( -4.64314, 15.6605 ) ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "Jump"
-length = 0.7
+[sub_resource type="Animation" id=4]
+resource_name = "Fall"
 loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Crouched" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 3 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.0762358, 0.0865784 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CollisionShape2D:shape:radius")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 14.863 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("CollisionShape2D:shape:height")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 38.218 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("AnimatedSprite:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -0.0256081, 0.0514911 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.8
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:animation")
 tracks/0/interp = 1
@@ -239,9 +314,22 @@ tracks/5/keys = {
 "update": 0,
 "values": [ Vector2( -6.87039, 2.74245 ), Vector2( -11.0749, 2.74245 ), Vector2( -12.3362, 1.90155 ) ]
 }
+tracks/6/type = "method"
+tracks/6/path = NodePath("CharacterFSM/Movements/Jump")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "EndJump"
+} ]
+}
 
-[sub_resource type="Animation" id=4]
-resource_name = "PreJump"
+[sub_resource type="Animation" id=6]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:animation")
@@ -318,7 +406,7 @@ tracks/5/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=7]
 length = 1.2
 loop = true
 tracks/0/type = "value"
@@ -382,7 +470,7 @@ tracks/4/keys = {
 "values": [ 71.7577 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=8]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -422,7 +510,7 @@ tracks/2/keys = {
 "values": [ Vector2( -4.62492, -0.420448 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=9]
 length = 0.7
 loop = true
 tracks/0/type = "value"
@@ -515,12 +603,13 @@ position = Vector2( -37.25, 47 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "idle"
-anims/Crouched = SubResource( 8 )
-anims/Jump = SubResource( 3 )
-anims/PreJump = SubResource( 4 )
-anims/Walk = SubResource( 5 )
-anims/Walk_Back = SubResource( 6 )
-anims/idle = SubResource( 7 )
+anims/Crouched = SubResource( 3 )
+anims/Fall = SubResource( 4 )
+anims/Jump = SubResource( 5 )
+anims/PreJump = SubResource( 6 )
+anims/Walk = SubResource( 7 )
+anims/Walk_Back = SubResource( 8 )
+anims/idle = SubResource( 9 )
 
 [node name="PhysicsData" type="Node2D" parent="."]
 script = ExtResource( 9 )
@@ -535,6 +624,7 @@ Walk = "Walk"
 Walk_B = "Walk_B"
 Crouch = "Crouched"
 PreJump = "PreJump"
+Fall = "Fall"
 Jump = "Jump"
 Hop = "Hop"
 Jump_F = "Jump_F"
@@ -593,3 +683,6 @@ JumpForce = Vector2( -150, -1000 )
 [node name="PreJump" type="Node2D" parent="CharacterFSM/Movements"]
 script = ExtResource( 43 )
 Anim = "PreJump"
+
+[node name="Fall" type="Node2D" parent="CharacterFSM/Movements"]
+script = ExtResource( 49 )

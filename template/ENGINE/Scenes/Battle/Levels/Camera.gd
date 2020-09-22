@@ -10,7 +10,7 @@ func _process(delta):
 	if distance > camera_boundaries:
 		if $"../Center".position.x < position.x:
 			self.position.x -= speed_camera
-			$"../ViewportContainer/Viewport/Level/Camera".translation.x -= camera_3D_speed
+			$"../ViewportContainer/Viewport/Level".Move(-camera_3D_speed)
 		else:
 			self.position.x += speed_camera
-			$"../ViewportContainer/Viewport/Level/Camera".translation.x += camera_3D_speed
+			$"../ViewportContainer/Viewport/Level".Move(camera_3D_speed)

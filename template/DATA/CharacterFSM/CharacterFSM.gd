@@ -6,10 +6,12 @@ var Direction = 0
 onready var Root = $"../"
 var flip = false
 var old_direction = false
+var OnAir = false
 
 var ArrayReader
 var Commands
 onready var AnimPlayer = $"../AnimationPlayer"
+var LastAttack = 1
 
 
 func _ready():

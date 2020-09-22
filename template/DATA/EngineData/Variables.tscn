@@ -15,6 +15,7 @@ script = ExtResource( 2 )
 CharactersPerTeam = 1
 Gravity = 50.0
 MaxGravity = 400.0
+MaxGravityAirHit = 150.0
 
 [node name="LevelsData" type="Node" parent="."]
 script = ExtResource( 3 )

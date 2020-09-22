@@ -2,7 +2,8 @@ extends Node2D
 
 enum commands {
 	idle, walk, walk_b, dash, dash_b, crouch, 
-	hop, jump, super_jump, super_hop
+	hop, jump, super_jump, super_hop,
+	WP
 }
 
 var last_command = commands.idle
@@ -21,9 +22,10 @@ func GetCommandName(command):
 		7 : return "JUMP"
 		8 : return "SUPER JUMP"
 		9: return "SUPER HOP"
+		10 : return "WEAK PUNCH"
 
 
-func SelectNewCommand(Keys):
+func SelectNewCommand(Keys, button, idletime_buttons):
 	
 	if Keys[len(Keys)-1].keyID == $"../".Key.down:
 		last_command = commands.crouch
@@ -80,6 +82,10 @@ func SelectNewCommand(Keys):
 	if Keys[len(Keys)-3].keyID == $"../".Key.left and Keys[len(Keys)-2].keyID == $"../".Key.up and Keys[len(Keys)-1].keyID == $"../".Key.none and $"../ArrayReader".timeidle < 5:
 		last_command = commands.hop
 	
+	#ATTACKS
+	if button == $"../".Key.A and idletime_buttons < 5:
+		last_command = commands.WP
+
 	if last_command != 0:
 		non_idle_command = last_command
 

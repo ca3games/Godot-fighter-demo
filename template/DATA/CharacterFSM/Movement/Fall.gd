@@ -14,7 +14,9 @@ func Inputs(delta):
 	pass
 
 func Physics(delta):
-
+	
+	FSM.OnAir = true
+	
 	if Ani.current_animation != "Anim":
 		Ani.current_animation = Anim
 		
@@ -27,5 +29,8 @@ func Physics(delta):
 		var collision = Root.get_slide_collision(i)
 		if collision.collider.is_in_group("Ground"):
 			if Movements.Idle != null:
+				FSM.OnAir = false
 				FSM.ChangeState(Movements.Idle, "Movements", 0)
+		if collision.collider.is_in_group("Character"):
+			collision.collider.move_and_slide(Vector2(-force.x, 0))
 

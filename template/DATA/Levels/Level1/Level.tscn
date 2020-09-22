@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=2]
+
+[sub_resource type="CapsuleMesh" id=1]
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 1, 0, 0, 1 )
+
+[sub_resource type="CubeMesh" id=3]
+
+[sub_resource type="QuadMesh" id=4]
+
+[node name="Level" type="Spatial"]
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.83, 0 )
+current = true
+
+[node name="Spatial" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.407, 0, 6.15 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -5, 0, 1, -2.18557e-07, 4.28623, 0, -16.8637 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="MeshInstance2" type="MeshInstance" parent="Spatial"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -5, 0, 1, -2.18557e-07, -8.8086, 0, -18.9422 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="MeshInstance3" type="MeshInstance" parent="Spatial"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -5, 0, 1, -2.18557e-07, -1.5337, 0, -25.3857 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="MeshInstance4" type="MeshInstance" parent="Spatial"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -5, 0, 1, -2.18557e-07, 10.9376, 0, -23.9307 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="MeshInstance5" type="MeshInstance" parent="Spatial"]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -6.65134, 0, -23.2797 )
+mesh = SubResource( 3 )
+material/0 = SubResource( 2 )
+
+[node name="MeshInstance6" type="MeshInstance" parent="Spatial"]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 4.88459, 0, -24.4229 )
+mesh = SubResource( 3 )
+material/0 = SubResource( 2 )
+
+[node name="MeshInstance7" type="MeshInstance" parent="Spatial"]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -17.6676, 0, -18.4991 )
+mesh = SubResource( 3 )
+material/0 = SubResource( 2 )
+
+[node name="MeshInstance8" type="MeshInstance" parent="Spatial"]
+transform = Transform( 100, 0, 0, 0, -1.62921e-05, 1, 0, -100, -1.62921e-07, 0, 0, -7.17605 )
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.221242, -0.185395, 0.957434, 0, 0.981763, 0.190106, -0.975219, -0.0420596, 0.217207, 0, 30.0324, 0 )

@@ -22,8 +22,6 @@ func _physics_process(delta):
 	
 		
 func ChangeState(state, parent, direction = 9):
-	print(direction)
 	current = get_node(parent + "/" + state)
 	if direction != 9:
 		Direction = direction
-		print(Direction)

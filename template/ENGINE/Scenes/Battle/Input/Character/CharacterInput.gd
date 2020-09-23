@@ -7,7 +7,7 @@ var Right = false
 onready var debugP1 = $"../../LevelManager/Camera2D/P1"
 onready var debugP2 = $"../../LevelManager/Camera2D/P2"
 
-var Debug = true
+var Debug = false
 
 enum Key {
 	left, right, up, down, A, B, C, D, X, Y, Z, W, none

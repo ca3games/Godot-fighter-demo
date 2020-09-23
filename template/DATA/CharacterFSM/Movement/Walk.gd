@@ -19,6 +19,7 @@ func Inputs(delta):
 			2: FSM.ChangeState(Movements.Walk_B, "Movements", 2)
 			5: FSM.ChangeState(Movements.Crouch, "Movements")
 			10: FSM.ChangeState(Attacks.Attacks[0], "Attacks")
+			11: FSM.ChangeState(Attacks.Attacks[1], "Attacks")
 		
 		if FSM.Commands.non_idle_command >= 6 and FSM.Commands.non_idle_command <= 9:
 			FSM.ChangeState(Movements.PreJump, "Movements")

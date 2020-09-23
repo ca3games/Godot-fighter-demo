@@ -1,6 +1,7 @@
 extends Node2D
 
 export (String) var Anim
+export (int) var Attack_id
 
 onready var Root = $"../../../"
 onready var FSM = $"../../"

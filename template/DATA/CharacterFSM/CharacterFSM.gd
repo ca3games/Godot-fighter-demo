@@ -7,6 +7,7 @@ onready var Root = $"../"
 var flip = false
 var old_direction = false
 var OnAir = false
+var Combo = 0
 
 var ArrayReader
 var Commands
@@ -38,3 +39,14 @@ func ChangeState(state, parent, direction = 9):
 func Flip():
 	Root.scale.x *= -1
 	
+func BacktrackHit():
+	if old_direction:
+		Root.move_and_collide(Vector2(Variables.get_node("EngineData").HitOffset, 0))
+	else:
+		Root.move_and_collide(Vector2(-Variables.get_node("EngineData").HitOffset, 0))
+	
+func Hit():
+	$"../../".AddHit()
+
+func ResetCombo():
+	$"../../".ResetCombo()

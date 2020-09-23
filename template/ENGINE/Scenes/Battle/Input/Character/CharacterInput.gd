@@ -29,6 +29,10 @@ func GetKeyName(key):
 		11: return "W"
 		12: return "None"
 
+func _ready():
+	Debug = false
+	ShowDebug()
+
 
 func _physics_process(delta):
 	if Input.is_action_just_released("Debug"):

@@ -70,6 +70,17 @@ shape = SubResource( 2 )
 position = Vector2( 568.642, 230.927 )
 script = ExtResource( 4 )
 
+[node name="ColorRect" type="ColorRect" parent="Center"]
+visible = false
+margin_left = -4.0
+margin_top = -26.0
+margin_right = 15.0
+margin_bottom = 458.0
+color = Color( 0.984314, 0.0156863, 0.0156863, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 position = Vector2( -26.4285, 475.713 )
 
@@ -88,4 +99,30 @@ position = Vector2( 0, -580.866 )
 shape = SubResource( 3 )
 __meta__ = {
 "_edit_lock_": true
+}
+
+[node name="Left" type="Position2D" parent="."]
+position = Vector2( 183.112, 402.091 )
+
+[node name="ColorRect" type="ColorRect" parent="Left"]
+visible = false
+margin_top = -130.0
+margin_right = 13.0
+margin_bottom = 197.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Right" type="Position2D" parent="."]
+position = Vector2( 1006.17, 386.989 )
+
+[node name="ColorRect" type="ColorRect" parent="Right"]
+visible = false
+margin_top = -130.0
+margin_right = 13.0
+margin_bottom = 197.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
 }

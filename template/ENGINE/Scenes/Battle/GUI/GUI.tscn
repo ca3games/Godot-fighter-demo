@@ -1,17 +1,46 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://ENGINE/Scenes/Battle/GUI/GUI.gd" type="Script" id=1]
+[ext_resource path="res://DATA/Fonts/The King of Fighters Font.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=2]
+size = 40
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 80
+font_data = ExtResource( 2 )
 
 [node name="GUI" type="CanvasLayer"]
 script = ExtResource( 1 )
 
-[node name="Label" type="Label" parent="."]
-margin_left = 843.534
-margin_top = 50.9113
-margin_right = 996.534
-margin_bottom = 124.911
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2( -2.82843, 67.8823 )
+
+[node name="Label" type="Label" parent="Node2D"]
+margin_left = 842.534
+margin_top = 69.9113
+margin_right = 995.534
+margin_bottom = 143.911
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.0235294, 0.0901961, 0.611765, 1 )
 text = "COMBO"
 __meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Combo" type="Label" parent="Node2D"]
+margin_left = 679.534
+margin_top = 53.9113
+margin_right = 832.534
+margin_bottom = 216.911
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.0235294, 0.0901961, 0.611765, 1 )
+text = "0
+"
+align = 2
+__meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }

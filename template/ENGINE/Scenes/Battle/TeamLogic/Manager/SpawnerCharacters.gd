@@ -7,10 +7,10 @@ func _ready():
 	var pos
 	var isP1
 	if $"../".P1:
-		pos = get_tree().get_root().get_node("Battle/LevelManager/P1").position
+		pos = $"../../../LevelManager/P1".position
 		isP1 = true
 	else:
-		pos = get_tree().get_root().get_node("Battle/LevelManager/P2").position
+		pos = $"../../../LevelManager/P2".position
 		isP1 = false
 		
 	

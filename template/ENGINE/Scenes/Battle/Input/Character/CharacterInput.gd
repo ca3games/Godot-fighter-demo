@@ -47,7 +47,7 @@ func _physics_process(delta):
 		Right = !$"../../TeamManager/Team2".Right
 	
 	$ArrayReader.ReceiveKey($InputReader.key, $InputReader.button)
-	$CommandReader.SelectNewCommand($ArrayReader.Keys, $ArrayReader.last_button, $ArrayReader.time_buttons_idle)
+	$CommandReader.SelectNewCommand($ArrayReader.Keys, $ArrayReader.last_button, $ArrayReader.timeidle, $ArrayReader.time_buttons_idle)
 
 func AddKey(key):
 	if !Debug:

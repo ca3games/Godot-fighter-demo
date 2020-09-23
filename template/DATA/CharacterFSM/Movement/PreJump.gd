@@ -16,7 +16,6 @@ func Physics(delta):
 
 func Jump():
 	FSM.IsJump = true
-	
 	match(FSM.Commands.non_idle_command):
 		6:
 			match (FSM.Direction):

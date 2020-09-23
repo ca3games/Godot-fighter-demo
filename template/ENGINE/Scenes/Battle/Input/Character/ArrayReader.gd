@@ -28,7 +28,6 @@ func ReceiveKey(new_key, new_button):
 			AddKey(new_key)
 	else:
 		timeidle += 1
-		$"../".AddIdle(timeidle)
 		if timeidle > 10 and Keys[len(Keys)-1].keyID != $"../".Key.none:
 			AddKey(new_key)
 	
@@ -43,9 +42,6 @@ func ReceiveKey(new_key, new_button):
 				$"../".AddKey($"../".GetKeyName(last_button))
 	else:
 		time_buttons_idle += 1
-		
-		$"../".AddButtonIdle(time_buttons_idle)
-		
 		if time_buttons_idle > 99:
 			time_buttons_idle = 99
 	

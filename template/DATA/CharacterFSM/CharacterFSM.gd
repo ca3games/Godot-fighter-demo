@@ -8,6 +8,7 @@ var flip = false
 var old_direction = false
 var OnAir = false
 var Combo = 0
+var Fireballs_Number = 0
 
 var ArrayReader
 var Commands

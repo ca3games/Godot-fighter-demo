@@ -27,6 +27,7 @@ __meta__ = {
 }
 
 [node name="Info" type="HBoxContainer" parent="Info"]
+visible = false
 margin_right = 103.0
 margin_bottom = 14.0
 
@@ -41,9 +42,9 @@ margin_right = 59.0
 margin_bottom = 14.0
 
 [node name="Info2" type="HBoxContainer" parent="Info"]
-margin_top = 18.0
+visible = false
 margin_right = 103.0
-margin_bottom = 32.0
+margin_bottom = 14.0
 
 [node name="Label" type="Label" parent="Info/Info2"]
 margin_right = 29.0
@@ -56,9 +57,8 @@ margin_right = 33.0
 margin_bottom = 14.0
 
 [node name="Info3" type="HBoxContainer" parent="Info"]
-margin_top = 36.0
 margin_right = 103.0
-margin_bottom = 50.0
+margin_bottom = 14.0
 
 [node name="Label" type="Label" parent="Info/Info3"]
 margin_right = 99.0
@@ -71,9 +71,9 @@ margin_right = 103.0
 margin_bottom = 14.0
 
 [node name="Info4" type="HBoxContainer" parent="Info"]
-margin_top = 54.0
+margin_top = 18.0
 margin_right = 103.0
-margin_bottom = 68.0
+margin_bottom = 32.0
 
 [node name="Label" type="Label" parent="Info/Info4"]
 margin_right = 77.0

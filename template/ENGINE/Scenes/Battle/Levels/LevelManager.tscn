@@ -56,13 +56,15 @@ speed_camera = 1.0
 camera_boundaries = 50.0
 camera_3D_speed = 0.01
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Camera2D"]
+[node name="CameraBoundaries" type="StaticBody2D" parent="Camera2D" groups=[
+"OffScreen",
+]]
 position = Vector2( -279.742, -10.6908 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/StaticBody2D"]
+[node name="Left" type="CollisionShape2D" parent="Camera2D/CameraBoundaries"]
 shape = SubResource( 2 )
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Camera2D/StaticBody2D"]
+[node name="Right" type="CollisionShape2D" parent="Camera2D/CameraBoundaries"]
 position = Vector2( 561.266, 8.909 )
 shape = SubResource( 2 )
 

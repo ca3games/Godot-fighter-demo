@@ -3,11 +3,14 @@ extends Node2D
 enum commands {
 	idle, walk, walk_b, dash, dash_b, crouch, 
 	hop, jump, super_jump, super_hop,
-	WP, SP
+	WP, SP, HP, WK, SK, HK
+	QCF, QCB,
 }
 
 var last_command = commands.idle
 var non_idle_command = last_command
+var last_button = commands.idle
+var button_idle = 0
 
 func GetCommandName(command):
 	match(command):
@@ -24,9 +27,15 @@ func GetCommandName(command):
 		9: return "SUPER HOP"
 		10 : return "WEAK PUNCH"
 		11 : return "STRONG PUNCH"
+		12 : return "HARD PUNCH"
+		13 : return "WEAK KICK"
+		14 : return "STRONG KICK"
+		15 : return "HARD KICK"
+		16 : return "QCF"
+		17 : return "QCB"
 
 
-func SelectNewCommand(Keys, button, idletime_buttons):
+func SelectNewCommand(Keys, button, time_idle, idletime_buttons):
 	
 	if Keys[len(Keys)-1].keyID == $"../".Key.down:
 		last_command = commands.crouch
@@ -85,11 +94,27 @@ func SelectNewCommand(Keys, button, idletime_buttons):
 	
 	#ATTACKS
 	if button == $"../".Key.A and idletime_buttons < 5:
-		last_command = commands.WP
+		last_button = commands.WP
 	if button == $"../".Key.B and idletime_buttons < 5:
-		last_command = commands.SP
+		last_button = commands.SP
+		
+	#SPECIALS
+	if Keys[len(Keys)-2].keyID == $"../".Key.down:
+		if Keys[len(Keys)-1].keyID == $"../".Key.left:
+			last_command = commands.QCB
+	if Keys[len(Keys)-2].keyID == $"../".Key.down:
+		if Keys[len(Keys)-1].keyID == $"../".Key.right:
+			last_command = commands.QCF
 
 	if last_command != 0:
 		non_idle_command = last_command
+	
+	button_idle = idletime_buttons
+	
+	if button_idle > 30 and time_idle > 30:
+		last_button = commands.idle
+		non_idle_command = commands.idle
+		last_command = commands.idle
 
 	$"../".ShowCommand(GetCommandName(non_idle_command))
+	$"../".AddButtonIdle(GetCommandName(last_button))

@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://DATA/EngineData/CharacterList.gd" type="Script" id=1]
+[ext_resource path="res://DATA/EngineData/EngineData.gd" type="Script" id=2]
+[ext_resource path="res://DATA/EngineData/LevelsData.gd" type="Script" id=3]
+
+[node name="Variables" type="Node"]
+
+[node name="CharacterList" type="Node" parent="."]
+script = ExtResource( 1 )
+CharacterList = [ "res://DATA/CharacterData/Athena/Character.tscn" ]
+
+[node name="EngineData" type="Node" parent="."]
+script = ExtResource( 2 )
+CharactersPerTeam = 1
+Gravity = 50.0
+MaxGravity = 400.0
+MaxGravityAirHit = 150.0
+HitOffset = 10.0
+
+[node name="LevelsData" type="Node" parent="."]
+script = ExtResource( 3 )
+Levels = [ "res://DATA/Levels/Level1/Level.tscn" ]

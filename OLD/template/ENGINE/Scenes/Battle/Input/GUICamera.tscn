@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://ENGINE/Scenes/Battle/Input/GUIDebug.tscn" type="PackedScene" id=1]
+
+[node name="Camera2D" type="Camera2D"]
+position = Vector2( 254.632, 153.288 )
+current = true
+zoom = Vector2( 0.5, 0.5 )
+
+[node name="P1" parent="." instance=ExtResource( 1 )]
+margin_left = -238.0
+margin_top = -134.0
+margin_right = -198.0
+margin_bottom = -56.0
+
+[node name="P2" parent="." instance=ExtResource( 1 )]
+margin_left = 190.0
+margin_top = -132.0
+margin_right = 230.0
+margin_bottom = -54.0

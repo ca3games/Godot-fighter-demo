@@ -1,18 +1,23 @@
 extends Node
 
 export (float) var SideAngle
+export (NodePath) var FSMPath
+onready var FSM = get_node(FSMPath)
 
 func SetSideRight(side):
-	if $"../".sideright != side:
-		$"../".sideright = side
+	if FSM.sideright != side:
+		FSM.sideright = side
 		if side:
-			$"../".Model.rotation_degrees.y = SideAngle
+			FSM.Root.rotation_degrees.y = SideAngle
 		else:
-			$"../".Model.rotation_degrees.y = -SideAngle
+			FSM.Root.rotation_degrees.y = -SideAngle
 
 func SetRightStart(side):
-	$"../".sideright = side
+	FSM.sideright = side
 	if side:
-		$"../".Model.rotation_degrees.y = SideAngle
+		FSM.Root.rotation_degrees.y = SideAngle
 	else:
-		$"../".Model.rotation_degrees.y = -SideAngle
+		FSM.Root.rotation_degrees.y = -SideAngle
+
+func WeakHurt():
+	FSM.current = $"../HURT"

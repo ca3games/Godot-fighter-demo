@@ -7,3 +7,7 @@ func SetSide(side, start):
 		$FSM/Variables.SetRightStart(side)
 	else:
 		$FSM/Variables.SetSideRight(side)
+
+func Hurt(type):
+	match(type):
+		"WEAK": $FSM/Variables.WeakHurt()

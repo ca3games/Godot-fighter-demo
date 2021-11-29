@@ -42,10 +42,6 @@ albedo_color = Color( 0.0666667, 0.0862745, 0.2, 1 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.14077, 1.75171, 16.5371 )
 fov = 40.0
 
-[node name="Leo" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.83931, 0, 0 )
-P1 = true
-
 [node name="MeshInstance" type="MeshInstance" parent="."]
 transform = Transform( 100, 0, 0, 0, 100, 0, 0, 0, 100, 0, -2.50965, 0 )
 material_override = SubResource( 1 )
@@ -79,8 +75,16 @@ mesh = SubResource( 7 )
 material/0 = null
 
 [node name="FightersVariableSetter" parent="." instance=ExtResource( 3 )]
-P1Path = NodePath("../Leo")
-P2Path = NodePath("../Leo2")
+P1Path = NodePath("../P1/Leo")
+P2Path = NodePath("../P2/Leo2")
 
-[node name="Leo2" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.19418, 0, 0 )
+[node name="P1" type="Spatial" parent="." groups=["P1"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.833, 0, 0 )
+
+[node name="Leo" parent="P1" instance=ExtResource( 1 )]
+P1 = true
+
+[node name="P2" type="Spatial" parent="." groups=["P2"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.35954, 0, 0 )
+
+[node name="Leo2" parent="P2" instance=ExtResource( 1 )]

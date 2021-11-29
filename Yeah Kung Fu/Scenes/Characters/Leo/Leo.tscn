@@ -1,17 +1,30 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Scenes/Characters/Base/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Characters/Leo/Leo_model.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scripts/Characters/Base/IDLE.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/Characters/Base/BaseAttack.gd" type="Script" id=4]
+[ext_resource path="res://3D/Characters/Leo/WEAK PUNCH.anim" type="Animation" id=5]
+[ext_resource path="res://3D/Characters/Leo/NO JUMP IDLE-loop.anim" type="Animation" id=6]
+[ext_resource path="res://Scripts/Characters/Base/AttackColisionBase.gd" type="Script" id=7]
+[ext_resource path="res://3D/Characters/Leo/Hurt1.anim" type="Animation" id=8]
+
+[sub_resource type="AnimationNodeAnimation" id=11]
+animation = "Hurt1"
+
+[sub_resource type="AnimationNodeAnimation" id=8]
+animation = "WEAK PUNCH"
+
+[sub_resource type="AnimationNodeOneShot" id=12]
 
 [sub_resource type="AnimationNodeAnimation" id=3]
-animation = "IDLE_No_Jump-loop"
+animation = "NO JUMP IDLE"
 
 [sub_resource type="AnimationNodeAnimation" id=4]
-animation = "WALKBACK-loop"
+animation = "WALKBACK"
 
 [sub_resource type="AnimationNodeAnimation" id=5]
-animation = "WALK-loop"
+animation = "WALK"
 
 [sub_resource type="AnimationNodeBlendSpace1D" id=6]
 blend_point_0/node = SubResource( 3 )
@@ -21,12 +34,51 @@ blend_point_1/pos = -1.0
 blend_point_2/node = SubResource( 5 )
 blend_point_2/pos = 1.0
 
+[sub_resource type="AnimationNodeOneShot" id=7]
+
 [sub_resource type="AnimationNodeBlendTree" id=2]
-graph_offset = Vector2( -277, 137.5 )
+graph_offset = Vector2( -758.315, -24.3918 )
+nodes/Animation/node = SubResource( 8 )
+nodes/Animation/position = Vector2( -760, 100 )
+"nodes/Animation 2/node" = SubResource( 11 )
+"nodes/Animation 2/position" = Vector2( -660, -60 )
+nodes/Hurt1/node = SubResource( 12 )
+nodes/Hurt1/position = Vector2( -300, -80 )
 nodes/Walk/node = SubResource( 6 )
-nodes/Walk/position = Vector2( -300, 220 )
+nodes/Walk/position = Vector2( -840, 260 )
+nodes/WeakPunch/node = SubResource( 7 )
+nodes/WeakPunch/position = Vector2( -480, 100 )
 nodes/output/position = Vector2( 300, 180 )
-node_connections = [ "output", 0, "Walk" ]
+node_connections = [ "output", 0, "Hurt1", "WeakPunch", 0, "Walk", "WeakPunch", 1, "Animation", "Hurt1", 0, "WeakPunch", "Hurt1", 1, "Animation 2" ]
+
+[sub_resource type="SphereShape" id=9]
+
+[sub_resource type="Animation" id=10]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Attack/CollisionShape:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Attack/CollisionShape:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
 
 [node name="Leo" instance=ExtResource( 1 )]
 
@@ -37,12 +89,28 @@ transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.1
 tree_root = SubResource( 2 )
 anim_player = NodePath("../Leo/AnimationPlayer")
 active = true
+parameters/Hurt1/active = false
 parameters/Walk/blend_position = 0.0
+parameters/WeakPunch/active = false
 
-[node name="Leo" parent="." index="2" instance=ExtResource( 2 )]
+[node name="Attack" type="Area" parent="." index="2"]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
+script = ExtResource( 7 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Attack" index="0"]
+shape = SubResource( 9 )
+disabled = true
+
+[node name="Leo" parent="." index="3" instance=ExtResource( 2 )]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
 
-[node name="FSM" parent="." index="3"]
+[node name="AnimationPlayer" parent="Leo" index="1"]
+anims/Hurt1 = ExtResource( 8 )
+"anims/NO JUMP IDLE-loop" = ExtResource( 6 )
+anims/RESET = SubResource( 10 )
+"anims/WEAK PUNCH" = ExtResource( 5 )
+
+[node name="FSM" parent="." index="4"]
 ModelPath = NodePath("../Leo")
 RootPath = NodePath("..")
 AnimTreePath = NodePath("../AnimationTree")
@@ -62,5 +130,19 @@ Speed = 5.0
 
 [node name="Variables" parent="FSM" index="3"]
 SideAngle = 63.0
+FSMPath = NodePath("..")
+
+[node name="PUNCH" type="Node" parent="FSM" index="4"]
+script = ExtResource( 4 )
+FSMPath = NodePath("..")
+AttackName = "parameters/WeakPunch/active"
+
+[node name="HURT" type="Node" parent="FSM" index="5"]
+script = ExtResource( 4 )
+FSMPath = NodePath("..")
+Speed = Vector2( -1, 0 )
+AttackName = "parameters/Hurt1/active"
+
+[connection signal="body_entered" from="Attack" to="Attack" method="_on_Area_body_entered"]
 
 [editable path="Leo"]

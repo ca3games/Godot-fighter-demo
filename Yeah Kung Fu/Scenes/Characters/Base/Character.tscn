@@ -6,8 +6,10 @@
 [ext_resource path="res://Scripts/Characters/Base/WALK.gd" type="Script" id=4]
 
 [sub_resource type="CapsuleShape" id=1]
+radius = 0.526202
+height = 3.69091
 
-[node name="Character" type="KinematicBody"]
+[node name="Character" type="KinematicBody" groups=["Character"]]
 script = ExtResource( 3 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]

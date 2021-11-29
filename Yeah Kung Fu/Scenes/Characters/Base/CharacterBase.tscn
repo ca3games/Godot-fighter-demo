@@ -1,0 +1,103 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Scenes/Characters/Base/Character.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/Characters/Base/IDLE.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Characters/Base/BaseAttack.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/Characters/Base/AttackColisionBase.gd" type="Script" id=4]
+
+[sub_resource type="AnimationNodeAnimation" id=11]
+animation = "Hurt1"
+
+[sub_resource type="AnimationNodeAnimation" id=8]
+animation = "WEAK PUNCH"
+
+[sub_resource type="AnimationNodeOneShot" id=12]
+
+[sub_resource type="AnimationNodeAnimation" id=3]
+animation = "NO JUMP IDLE"
+
+[sub_resource type="AnimationNodeAnimation" id=4]
+animation = "WALKBACK"
+
+[sub_resource type="AnimationNodeAnimation" id=5]
+animation = "WALK"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id=6]
+blend_point_0/node = SubResource( 3 )
+blend_point_0/pos = 0.0
+blend_point_1/node = SubResource( 4 )
+blend_point_1/pos = -1.0
+blend_point_2/node = SubResource( 5 )
+blend_point_2/pos = 1.0
+
+[sub_resource type="AnimationNodeOneShot" id=7]
+
+[sub_resource type="AnimationNodeBlendTree" id=2]
+graph_offset = Vector2( -766.315, -37.8918 )
+nodes/Animation/node = SubResource( 8 )
+nodes/Animation/position = Vector2( -760, 100 )
+"nodes/Animation 2/node" = SubResource( 11 )
+"nodes/Animation 2/position" = Vector2( -660, -60 )
+nodes/Hurt1/node = SubResource( 12 )
+nodes/Hurt1/position = Vector2( -300, -80 )
+nodes/Walk/node = SubResource( 6 )
+nodes/Walk/position = Vector2( -840, 260 )
+nodes/WeakPunch/node = SubResource( 7 )
+nodes/WeakPunch/position = Vector2( -480, 100 )
+nodes/output/position = Vector2( 300, 180 )
+node_connections = [ "output", 0, "Hurt1", "WeakPunch", 0, "Walk", "WeakPunch", 1, "Animation", "Hurt1", 0, "WeakPunch", "Hurt1", 1, "Animation 2" ]
+
+[sub_resource type="SphereShape" id=9]
+
+[node name="Character" instance=ExtResource( 1 )]
+
+[node name="CollisionShape" parent="." index="0"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.133409, 0 )
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="1"]
+tree_root = SubResource( 2 )
+parameters/Hurt1/active = false
+parameters/Walk/blend_position = 0.0
+parameters/WeakPunch/active = false
+
+[node name="Attack" type="Area" parent="." index="2"]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
+script = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Attack" index="0"]
+shape = SubResource( 9 )
+disabled = true
+
+[node name="FSM" parent="." index="3"]
+RootPath = NodePath("..")
+AnimTreePath = NodePath("../AnimationTree")
+
+[node name="IDLE" parent="FSM" index="0"]
+script = ExtResource( 2 )
+FSMPath = NodePath("..")
+
+[node name="WALKBACK" parent="FSM" index="1"]
+FSMPath = NodePath("..")
+Speed = -3.0
+backwalk = true
+
+[node name="WALK" parent="FSM" index="2"]
+FSMPath = NodePath("..")
+Speed = 5.0
+
+[node name="Variables" parent="FSM" index="3"]
+SideAngle = 63.0
+FSMPath = NodePath("..")
+
+[node name="PUNCH" type="Node" parent="FSM" index="4"]
+script = ExtResource( 3 )
+FSMPath = NodePath("..")
+AttackName = "parameters/WeakPunch/active"
+
+[node name="HURT" type="Node" parent="FSM" index="5"]
+script = ExtResource( 3 )
+FSMPath = NodePath("..")
+Speed = Vector2( -1, 0 )
+AttackName = "parameters/Hurt1/active"
+
+[connection signal="body_entered" from="Attack" to="Attack" method="_on_Area_body_entered"]

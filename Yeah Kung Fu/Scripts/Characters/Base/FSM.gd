@@ -6,6 +6,8 @@ export(NodePath) var RootPath
 onready var Root = get_node(RootPath)
 export(NodePath) var AnimTreePath
 onready var AnimTree = get_node(AnimTreePath)
+export(NodePath) var AttackHitboxPath
+onready var AttackHitbox = get_node(AttackHitboxPath)
 
 onready var current = $IDLE
 var sideright = false

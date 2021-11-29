@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scenes/Characters/Base/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Characters/Base/IDLE.gd" type="Script" id=2]
@@ -12,6 +12,8 @@ animation = "Hurt1"
 animation = "WEAK PUNCH"
 
 [sub_resource type="AnimationNodeOneShot" id=12]
+
+[sub_resource type="AnimationNodeTimeSeek" id=13]
 
 [sub_resource type="AnimationNodeAnimation" id=3]
 animation = "NO JUMP IDLE"
@@ -33,19 +35,21 @@ blend_point_2/pos = 1.0
 [sub_resource type="AnimationNodeOneShot" id=7]
 
 [sub_resource type="AnimationNodeBlendTree" id=2]
-graph_offset = Vector2( -766.315, -37.8918 )
+graph_offset = Vector2( -473.302, -119.932 )
 nodes/Animation/node = SubResource( 8 )
 nodes/Animation/position = Vector2( -760, 100 )
 "nodes/Animation 2/node" = SubResource( 11 )
 "nodes/Animation 2/position" = Vector2( -660, -60 )
 nodes/Hurt1/node = SubResource( 12 )
 nodes/Hurt1/position = Vector2( -300, -80 )
+nodes/Seek/node = SubResource( 13 )
+nodes/Seek/position = Vector2( -20, -60 )
 nodes/Walk/node = SubResource( 6 )
 nodes/Walk/position = Vector2( -840, 260 )
 nodes/WeakPunch/node = SubResource( 7 )
 nodes/WeakPunch/position = Vector2( -480, 100 )
 nodes/output/position = Vector2( 300, 180 )
-node_connections = [ "output", 0, "Hurt1", "WeakPunch", 0, "Walk", "WeakPunch", 1, "Animation", "Hurt1", 0, "WeakPunch", "Hurt1", 1, "Animation 2" ]
+node_connections = [ "output", 0, "Seek", "Hurt1", 0, "WeakPunch", "Hurt1", 1, "Animation 2", "WeakPunch", 0, "Walk", "WeakPunch", 1, "Animation", "Seek", 0, "Hurt1" ]
 
 [sub_resource type="SphereShape" id=9]
 
@@ -57,6 +61,7 @@ transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.1
 [node name="AnimationTree" type="AnimationTree" parent="." index="1"]
 tree_root = SubResource( 2 )
 parameters/Hurt1/active = false
+parameters/Seek/seek_position = 0.0
 parameters/Walk/blend_position = 0.0
 parameters/WeakPunch/active = false
 
@@ -71,6 +76,7 @@ disabled = true
 [node name="FSM" parent="." index="3"]
 RootPath = NodePath("..")
 AnimTreePath = NodePath("../AnimationTree")
+AttackHitboxPath = NodePath("../Attack")
 
 [node name="IDLE" parent="FSM" index="0"]
 script = ExtResource( 2 )
@@ -92,6 +98,7 @@ FSMPath = NodePath("..")
 [node name="PUNCH" type="Node" parent="FSM" index="4"]
 script = ExtResource( 3 )
 FSMPath = NodePath("..")
+damage = 10
 AttackName = "parameters/WeakPunch/active"
 
 [node name="HURT" type="Node" parent="FSM" index="5"]

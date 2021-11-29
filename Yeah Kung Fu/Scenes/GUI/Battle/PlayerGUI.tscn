@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://2D/Face/lee.png" type="Texture" id=1]
+[ext_resource path="res://2D/GUI/lifebar line.png" type="Texture" id=2]
+[ext_resource path="res://2D/GUI/lifebar.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/GUI/Battle/PlayerGUI.gd" type="Script" id=4]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "Faces",
+"speed": 5.0
+} ]
+
+[node name="PlayerGUI" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="Faces" type="AnimatedSprite" parent="."]
+position = Vector2( 36, 50 )
+frames = SubResource( 1 )
+animation = "Faces"
+
+[node name="BehindRed" type="TextureProgress" parent="."]
+margin_left = 64.0
+margin_top = 33.0
+margin_right = 80.0
+margin_bottom = 41.0
+rect_scale = Vector2( 20, 5 )
+value = 70.0
+texture_progress = ExtResource( 3 )
+tint_under = Color( 0.313726, 0.0627451, 0.0627451, 1 )
+tint_progress = Color( 0.956863, 0.247059, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LifebarLine" type="Sprite" parent="."]
+modulate = Color( 0.254902, 0.254902, 0.254902, 1 )
+position = Vector2( 224, 53 )
+scale = Vector2( 21, 6 )
+texture = ExtResource( 2 )
+
+[node name="OverHP" type="TextureProgress" parent="."]
+margin_left = 64.0
+margin_top = 33.0
+margin_right = 80.0
+margin_bottom = 41.0
+rect_scale = Vector2( 20, 5 )
+value = 50.0
+texture_progress = ExtResource( 3 )
+tint_under = Color( 0.313726, 0.0627451, 0.0627451, 1 )
+tint_progress = Color( 0.113725, 0.862745, 0.105882, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RedBarReset" type="Timer" parent="."]
+
+[node name="Red" type="Tween" parent="."]
+
+[connection signal="timeout" from="RedBarReset" to="." method="_on_RedBarReset_timeout"]

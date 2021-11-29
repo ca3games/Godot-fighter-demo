@@ -21,3 +21,4 @@ func SetRightStart(side):
 
 func WeakHurt():
 	FSM.current = $"../HURT"
+	FSM.current.start = false
